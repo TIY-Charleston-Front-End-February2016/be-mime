@@ -1,5 +1,7 @@
 package com.mimetroupe.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -17,9 +19,11 @@ public class Admimerer {
     int id;
 
     @ManyToOne
+    @JsonIgnore
     private Mime mime;
 
     @ManyToOne
+    @JsonIgnore
     private Mime admimerer;
 
     public Admimerer() {

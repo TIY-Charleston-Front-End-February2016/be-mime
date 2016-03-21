@@ -1,5 +1,6 @@
 package com.mimetroupe.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -48,9 +49,11 @@ public class Mime {
 //    private String influences;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "admimerer")
+    @JsonIgnore
     private List<Admimerer> admimerer = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "mime")
+    @JsonIgnore
     private List<Admimerer> mime = new ArrayList<>();
 
 
@@ -147,5 +150,14 @@ public class Mime {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public List<Admimerer> getAdmimerer() {
+        return admimerer;
+    }
+
+    public List<Admimerer> getMime() {
+        return mime;
     }
 }
