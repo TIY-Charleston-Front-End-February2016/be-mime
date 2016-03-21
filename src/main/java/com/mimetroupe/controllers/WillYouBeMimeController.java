@@ -1,5 +1,6 @@
 package com.mimetroupe.controllers;
 
+
 import com.mimetroupe.entities.Admimerer;
 import com.mimetroupe.entities.Mime;
 import com.mimetroupe.services.AdmimererRepository;
@@ -49,15 +50,15 @@ public class WillYouBeMimeController {
         if (mimeRepository.findByUserName(mime.getUserName()) == null) {
 
             //just a little check to make sure all the fields are entered so we don't break any null constraints in DB
-            if (    (mime.getUserName() == null || mime.getUserName().length() <= 1 ) ||
-                    (mime.getPassword() == null || mime.getPassword().length() <= 1 ) ||
-                    (mime.getFullName() == null || mime.getFullName().length() <=1 ) ||
+            if (    (mime.getUserName() == null || mime.getUserName().length() < 1 ) ||
+                    (mime.getPassword() == null || mime.getPassword().length() < 1 ) ||
+                    (mime.getFullName() == null || mime.getFullName().length() <1 ) ||
                     (mime.getAge() == 0) ||
-                    (mime.getImageUrl() == null || mime.getImageUrl().length() <= 1) ||
-                    (mime.getProfileVideoUrl() == null || mime.getProfileVideoUrl().length() <= 1) ||
-                    (mime.getInterests() == null || mime.getInterests().length() <= 1) ||
-                    (mime.getCity() == null || mime.getCity().length() <= 1) ||
-                    (mime.getState() == null || mime.getState().length() <= 1)
+                    (mime.getImageUrl() == null || mime.getImageUrl().length() < 1) ||
+                    (mime.getProfileVideoUrl() == null || mime.getProfileVideoUrl().length() < 1) ||
+                    (mime.getInterests() == null || mime.getInterests().length() < 1) ||
+                    (mime.getCity() == null || mime.getCity().length() < 1) ||
+                    (mime.getState() == null || mime.getState().length() < 1)
             ) throw new Exception("Membership form not filled out");
 
 
@@ -92,6 +93,8 @@ public class WillYouBeMimeController {
     public void editProfile(@RequestBody Mime mime, HttpSession session) throws Exception {
 
         if (mime.getUserName().equals(session.getAttribute("userName"))) {
+           
+
             mimeRepository.save(mime);
         } else {
             throw new Exception("Mimes may make many magnificent modifications. But not this one.");
@@ -142,7 +145,7 @@ public class WillYouBeMimeController {
             mimeRepository.delete(mime);
             session.invalidate();
         } else {
-            throw  new Exception("Mackin aint easy for a Mime. Don't make it harder by deleting someone else's profile.");
+           throw  new Exception("Mackin aint easy for a Mime. Don't make it harder by deleting someone else's profile.");
         }
     }
 
@@ -228,12 +231,9 @@ public class WillYouBeMimeController {
     }
 
 
-
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) {
         session.invalidate();
     }
-
-
 
 }
