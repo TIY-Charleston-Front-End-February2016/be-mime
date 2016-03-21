@@ -11,8 +11,7 @@ h1, h2, h3 {
   font-family: 'Josefin Sans', sans-serif; }
 
 h1, h2, h3 {
-  font-weight: 700;
-  text-transform: lowercase; }
+  font-weight: 700; }
 
 h1 {
   font-size: 42px; }
@@ -60,6 +59,10 @@ h1 {
   .header button {
     display: inline; }
 
+.pointer:hover {
+  cursor: pointer;
+  color: #4A0101; }
+
 #main .header {
   position: fixed;
   width: 100%;
@@ -79,6 +82,10 @@ h1 {
 #main li {
   margin-bottom: 5px; }
 
+#main .button-box {
+  margin-left: -22px;
+  margin-top: 20px; }
+
 #main .glyphicon {
   margin-right: 10px; }
 
@@ -91,17 +98,35 @@ ul {
 #current-user-prof {
   padding-right: 135px;
   margin-top: 20px; }
+  #current-user-prof img {
+    border: 1px solid lightgrey; }
   #current-user-prof button {
     margin-top: 20px; }
+
+#edit-form {
+  width: 90%; }
 
 #profile-list-header {
   position: fixed;
   background: white;
   width: 43%;
   z-index: 1; }
+  #profile-list-header h3 {
+    display: inline-block;
+    margin-right: 30px; }
+  #profile-list-header ul {
+    vertical-align: middle; }
+  #profile-list-header li {
+    margin-right: 10px; }
 
 #profile-list {
   margin-top: 56px; }
+  #profile-list img {
+    margin-top: 16px; }
+
+iframe {
+  width: 100%;
+  height: 300px; }
 
 #admimerer-well {
   position: fixed;

@@ -3,10 +3,6 @@ $wellGrey: #424242;
 $red:#8E0404;
 $maroon: #4A0101;
 
-body {
-
-}
-
 .hidden {
   display: none;
 }
@@ -24,7 +20,6 @@ h1, h2, h3 {
 
 h1, h2, h3 {
   font-weight: 700;
-  text-transform: lowercase;
 }
 
 h1 {
@@ -88,7 +83,10 @@ h1 {
   }
 }
 
-
+.pointer:hover {
+    cursor: pointer;
+    color: $maroon;
+}
 
 #main {
   .header {
@@ -103,15 +101,16 @@ h1 {
   #main-content {
     margin: 100px auto;
   }
-  h2 {
-
-  }
   h3 {
     font-weight: 300;
     color: grey;
   }
   li {
     margin-bottom: 5px;
+  }
+  .button-box {
+    margin-left: -22px;
+    margin-top: 20px;
   }
   .glyphicon {
     margin-right: 10px;
@@ -128,9 +127,16 @@ ul {
 #current-user-prof {
   padding-right: 135px;
   margin-top: 20px;
+  img {
+    border: 1px solid lightgrey;
+  }
   button {
     margin-top: 20px;
   }
+}
+
+#edit-form {
+  width: 90%;
 }
 
 #profile-list-header {
@@ -138,11 +144,29 @@ ul {
   background: white;
   width: 43%;
   z-index: 1;
+  h3 {
+    display: inline-block;
+    margin-right: 30px;
+  }
+  ul {
+    vertical-align: middle;
+  }
+  li {
+    margin-right: 10px;
+  }
 }
 
 #profile-list {
   margin-top: 56px;
+  img {
+    margin-top: 16px;
+  }
 }
+
+ iframe {
+   width: 100%;
+   height: 300px;
+ }
 
 #admimerer-well {
   position: fixed;
